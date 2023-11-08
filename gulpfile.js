@@ -15,4 +15,10 @@ import { sass } from "./gulp/tasks/sass.js";
 import { clean } from "./gulp/tasks/clean.js";
 
 
-gulp.task('default', gulp.series(clean, gulp.parallel(html, sass)));
+// Наблюдатель за изменениями в файлах
+function watcher() {
+    gulp.watch(path.watch.html, html);
+    gulp.watch(path.watch.scss, sass);
+}
+
+gulp.task('default', gulp.series(clean, gulp.parallel(html, sass), watcher));
