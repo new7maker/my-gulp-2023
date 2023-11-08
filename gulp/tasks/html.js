@@ -5,5 +5,6 @@ export const html = () => {
         .pipe(render({
            path: ['src/']
         }))
-        .pipe(app.gulp.dest(app.path.build.html));
+        .pipe(app.gulp.dest(app.path.build.html))
+        .pipe(app.plugins.browsersync.stream());
 }

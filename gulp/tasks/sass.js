@@ -10,5 +10,6 @@ export const sass = () => {
         .pipe(rename({
             basename: 'style'
         }))
-        .pipe(app.gulp.dest(app.path.build.css));
+        .pipe(app.gulp.dest(app.path.build.css))
+        .pipe(app.plugins.browsersync.stream());
 }
