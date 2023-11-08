@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en"> <!-- Изменить язык -->
+    {% include 'html_config/_head.html' %}
+    
+    <body>
+        <div class="site-container">
+            {% include 'html_parts/_main-header.html' %}
+
+            <div class="main">
+                {% block page_content %}
+
+                {% endblock %}
+            </div>
+            <!-- /.main -->
+
+            {% include 'html_parts/_main-footer.html' %}
+        </div>
+        <!-- /.site-container -->
+    </body>
+</html>
