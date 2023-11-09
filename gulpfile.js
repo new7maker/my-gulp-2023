@@ -19,6 +19,7 @@ import { sass } from "./gulp/tasks/sass.js";
 import { clean } from "./gulp/tasks/clean.js";
 import { server } from "./gulp/tasks/server.js";
 import { images } from "./gulp/tasks/images.js";
+import { zip } from "./gulp/tasks/zip.js";
 
 
 // Наблюдатель за изменениями в файлах
@@ -29,3 +30,4 @@ function watcher() {
 }
 
 gulp.task('default', gulp.series(clean, gulp.parallel(html, sass, images), gulp.parallel(server, watcher)));
+gulp.task('zip', zip);
