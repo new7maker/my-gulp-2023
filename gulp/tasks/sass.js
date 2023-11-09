@@ -6,6 +6,7 @@ const sassPlugin = gulpSass(dartSass);
 
 export const sass = () => {
     return app.gulp.src(app.path.src.scss)
+        .pipe(app.plugins.changed(app.path.build.css))
         .pipe(sassPlugin())
         .pipe(rename({
             basename: 'style'
