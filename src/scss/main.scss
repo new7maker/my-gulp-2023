@@ -1,5 +1,15 @@
+@import "layout/main-header";
+
+* {
+    box-sizing: border-box;
+}
+
 body {
     background: #000;
     color: rgb(110, 25, 42);
     font-family: sans-serif;
+}
+
+.container {
+    display: flex;
 }
