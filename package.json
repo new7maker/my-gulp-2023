@@ -5,6 +5,7 @@
     "del": "^7.1.0",
     "gulp": "^4.0.2",
     "gulp-changed": "^5.0.1",
+    "gulp-htmlmin": "^5.0.1",
     "gulp-if": "^3.0.0",
     "gulp-imagemin": "^9.0.0",
     "gulp-nunjucks": "^6.0.0",
