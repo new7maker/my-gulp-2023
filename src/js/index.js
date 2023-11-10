@@ -1,1 +1,3 @@
-console.log(123);
+import modal from './modules/modal.js';
+
+modal();
