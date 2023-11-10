@@ -18,9 +18,10 @@ global.app = {
 // Импорт задач
 import { html } from "./gulp/tasks/html.js";
 import { sass } from "./gulp/tasks/sass.js";
+import { js } from "./gulp/tasks/js.js";
+import { images } from "./gulp/tasks/images.js";
 import { clean } from "./gulp/tasks/clean.js";
 import { server } from "./gulp/tasks/server.js";
-import { images } from "./gulp/tasks/images.js";
 import { zip } from "./gulp/tasks/zip.js";
 
 
@@ -28,11 +29,12 @@ import { zip } from "./gulp/tasks/zip.js";
 function watcher() {
     gulp.watch(path.watch.html, html);
     gulp.watch(path.watch.scss, sass);
+    gulp.watch(path.watch.js, js);
     gulp.watch(path.watch.images, images);
 }
 
 // Основные задачи
-const mainTasks = gulp.parallel(html, sass, images); 
+const mainTasks = gulp.parallel(html, sass, images, js); 
 
 // Построение сценариев выполенения задач
 const dev =  gulp.series(clean, mainTasks, gulp.parallel(watcher, server));
