@@ -1,4 +1,8 @@
 {
+  "scripts": {
+    "dev": "gulp",
+    "zip": "gulp deployZIP --build"
+  },
   "type": "module",
   "devDependencies": {
     "browser-sync": "^2.29.3",

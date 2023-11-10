@@ -8,7 +8,7 @@ import cleanCss from 'gulp-clean-css';
 const sassPlugin = gulpSass(dartSass);
 
 export const sass = () => {
-    return app.gulp.src(app.path.src.scss, { sourcemaps: true })
+    return app.gulp.src(app.path.src.scss, { sourcemaps: app.isDev })
         .pipe(app.plugins.changed(app.path.build.css))
         .pipe(app.plugins.replace(/@img\//g, '../img/'))
         .pipe(groupCssMediaQueries())
@@ -22,6 +22,6 @@ export const sass = () => {
         .pipe(rename({
             basename: 'style'
         }))
-        .pipe(app.gulp.dest(app.path.build.css, { sourcemaps: true }))
+        .pipe(app.gulp.dest(app.path.build.css, { sourcemaps: app.isDev }))
         .pipe(app.plugins.browsersync.stream());
 }

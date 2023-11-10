@@ -8,6 +8,8 @@ import { path } from "./gulp/config/path.js";
 import { plugins } from "./gulp/config/plugins.js";
 
 global.app = {
+    isBuild: process.argv.includes('--build'),
+    isDev: !process.argv.includes('--build'),
     gulp: gulp, 
     path: path,
     plugins: plugins,
@@ -29,5 +31,15 @@ function watcher() {
     gulp.watch(path.watch.images, images);
 }
 
-gulp.task('default', gulp.series(clean, gulp.parallel(html, sass, images), gulp.parallel(server, watcher)));
-gulp.task('zip', zip);
+// Основные задачи
+const mainTasks = gulp.parallel(html, sass, images); 
+
+// Построение сценариев выполенения задач
+const dev =  gulp.series(clean, mainTasks, gulp.parallel(watcher, server));
+const deployZIP = gulp.series(clean, mainTasks, zip);
+
+export { dev };
+export { deployZIP };
+
+// Выполнение сценария по умолчанию
+gulp.task('default', dev);
