@@ -1,17 +1,23 @@
 // Fonts
-@import "fonts-files";
+@import "fonts";
+
+// Libs
+@import "lib";
 
 // Reset
 @import "reset";
 
-// Libs
-@import "lib";
+// Design system
+@import "design-system";
 
 // Base
 @import "base";
 
 // Layout
-@import "layout/site-container";
+@import "layout/page-wrapper";
+@import "layout/container";
 @import "layout/main-header";
 @import "layout/main";
 @import "layout/main-footer";
+
+// Blocks
