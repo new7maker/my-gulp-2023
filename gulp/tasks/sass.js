@@ -11,8 +11,10 @@ export const sass = () => {
     return app.gulp.src(app.path.src.scss, { sourcemaps: app.isDev })
         .pipe(app.plugins.changed(app.path.build.css))
         .pipe(app.plugins.replace(/@img\//g, '../img/'))
+        .pipe(sassPlugin({
+            includePaths: './node_modules/'
+        }))
         .pipe(groupCssMediaQueries())
-        .pipe(sassPlugin())
         .pipe(autoPrefixer({
             grid: true,
             overrideBrowserslist: ['last 3 version'],

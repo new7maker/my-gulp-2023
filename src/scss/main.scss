@@ -1,19 +1,17 @@
-@import "layout/main-header";
+// Fonts
 @import "fonts-files";
 
-* {
-    box-sizing: border-box;
-}
+// Reset
+@import "reset";
 
-body {
-    background: #532424;
-    font-family: SaarSPDemo, sans-serif;
-}
+// Libs
+@import "lib";
 
-h1 {
-    font-size: 60px;
-}
+// Base
+@import "base";
 
-.container {
-    display: flex;
-}
+// Layout
+@import "layout/site-container";
+@import "layout/main-header";
+@import "layout/main";
+@import "layout/main-footer";
