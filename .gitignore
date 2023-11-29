@@ -2,5 +2,3 @@ node_modules
 package-lock.json
 dist
 my-gulp-2023
-src/fonts/*
-src/img/*
