@@ -8,10 +8,10 @@ export const html = () => {
            path: ['src/html/']
         }))
         .pipe(app.plugins.replace(/@img\//g, 'img/'))
-        .pipe(htmlmin({
+        .pipe(app.plugins.if(!app.isBuild, htmlmin({
             collapseWhitespace: true,
             removeComments: true
-        }))
+        })))
         .pipe(app.gulp.dest(app.path.build.html))
         .pipe(app.plugins.browsersync.stream());
 }

@@ -20,7 +20,7 @@ export const sass = () => {
             overrideBrowserslist: ['last 3 version'],
             cascade: true
         }))
-        .pipe(cleanCss())
+        .pipe(app.plugins.if(!app.isBuild, cleanCss()))
         .pipe(rename({
             basename: 'style'
         }))
