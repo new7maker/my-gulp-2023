@@ -8,6 +8,7 @@ export const html = () => {
            path: ['src/html/']
         }))
         .pipe(app.plugins.replace(/@img\//g, 'img/'))
+        .pipe(app.plugins.replace(/type="module"/g, ''))
         .pipe(app.plugins.if(!app.isBuild, htmlmin({
             collapseWhitespace: true,
             removeComments: true
