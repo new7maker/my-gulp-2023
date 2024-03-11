@@ -15,11 +15,18 @@ export const sass = () => {
             includePaths: './node_modules/'
         }))
         .pipe(groupCssMediaQueries())
-        .pipe(autoPrefixer({
-            grid: true,
-            overrideBrowserslist: ['last 3 version'],
-            cascade: true
-        }))
+        .pipe(
+            app.plugins.if(
+                app.isBuild,
+                autoPrefixer(
+                    {
+                        grid: true,
+                        overrideBrowserslist: ['last 3 version'],
+                        cascade: true
+                    }
+                )
+            )
+        )
         .pipe(app.plugins.if(!app.isBuild, cleanCss()))
         .pipe(rename({
             basename: 'style'
